@@ -18,7 +18,7 @@ function SinglePortfolio(props, {images}){
     )
 }
 
-export async function getStaticPath(props) {
+export async function getStaticPaths(props) {
     const router = useRouter(props);
     const slug = router.query.slug
 
