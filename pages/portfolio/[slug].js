@@ -4,6 +4,53 @@ import { Header } from '../../components/Header';
 import { GET_CATERGORY_PHOTOS } from '../../graphql/queries'
 import styles from './Portfolio.module.scss'
 
+export async function getStaticPaths(props) {
+  return {
+    paths: [{
+      params: {
+        slug: 'casamentos'
+      }
+    }],
+    fallback: false
+  }
+  const router = useRouter(props);
+  const slug = router.query.slug
+
+  const client = new ApolloClient({
+    uri: process.env.STRAPI_GRAPHQL_API,
+    cache: new InMemoryCache()
+  });
+
+  const { data } = await client.query({
+    query: GET_CATERGORY_PHOTOS(slug)
+  })
+
+  return {
+    props: {
+      images: data.categories.data.attributes.events.data.attributes,
+    }
+  }
+}
+
+export async function getStaticProps(context) {
+  const slug = context.params.slug
+
+  const client = new ApolloClient({
+    uri: process.env.STRAPI_GRAPHQL_API,
+    cache: new InMemoryCache()
+  });
+
+  const { data } = await client.query({
+    query: GET_CATERGORY_PHOTOS(slug)
+  })
+
+  return {
+    props: {
+      images: data.categories.data.attributes.events.data.attributes,
+    }
+  }
+}
+
 function SinglePortfolio(props, {images}){
     const router = useRouter(props);
     const slug = router.query.slug
@@ -17,25 +64,5 @@ function SinglePortfolio(props, {images}){
         </>
     )
 }
-
-export async function getStaticPaths(props) {
-    const router = useRouter(props);
-    const slug = router.query.slug
-
-    const client = new ApolloClient({
-      uri: process.env.STRAPI_GRAPHQL_API,
-      cache: new InMemoryCache()
-    });
-  
-    const { data } = await client.query({
-      query: GET_CATERGORY_PHOTOS(slug)
-    })
-  
-    return {
-      props: {
-        images: data.categories.data.attributes.events.data.attributes,
-      }
-    }
-  }
 
 export default SinglePortfolio;
