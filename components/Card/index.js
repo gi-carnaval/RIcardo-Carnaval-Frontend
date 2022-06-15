@@ -13,9 +13,9 @@ export default function Card({category}){
             <a>
             <div className={styles.card}>
                 <div className={styles.containerPhoto}>              
-                {images.data.map(image => {
+                {images.data.map(({image, index}) => {
                     return(
-                        <div className={styles.photoCard}style={{'background-image': `url(http://localhost:1337${image.attributes.url})`}}></div>
+                        <div key={index} className={styles.photoCard}style={{'background-image': `url(http://localhost:1337${image.attributes.url})`}}></div>
                     )
                 })}
                 </div>

@@ -4,7 +4,7 @@ import { Header } from '../../components/Header';
 import { GET_CATERGORY_PHOTOS } from '../../graphql/queries'
 import styles from './Portfolio.module.scss'
 
-export async function getStaticPaths(props) {
+export async function getStaticPaths() {
   return {
     paths: [{
       params: {
