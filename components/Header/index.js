@@ -14,7 +14,7 @@ export function Header(){
                     className={styles.logoImg}
                     src={logo}
                     width={250}
-                    height={250}
+                    height={100}
                     alt="Ricardo Carnaval" />
                 </a>
             </Link>
@@ -28,7 +28,7 @@ export function Header(){
                 <Link href="../portfolio/">
                     <a>Portifólio</a>
                 </Link>
-                <Link href="#">
+                <Link href="../trabalhos/">
                     <a>Trabalhos</a>
                 </Link>
                 <Link href="#">

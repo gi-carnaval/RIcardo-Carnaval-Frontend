@@ -9,19 +9,24 @@ export default function Home({images, categories}) {
 
   return(
     <>
-      <Header/>
       <SliderBanner images={images}/>
       <div className={styles.container}>
-        <h2 className={styles.title}>Portifólio</h2>
+        <h2 className={styles.title} id="titlePotifolio">Portifólio</h2>
         <div className={styles.cardGrid}>
-          {categories.map((category, index) => {
+          {categories.map((category) => {
             return(
-              <Card key={index} category={category}/> 
+              <Card key={category.id} type="category" category={category}/> 
             );
           })}
         </div>
-        
-        
+        <hr></hr>
+        <div className={styles.cardGrid}>
+          {categories.map((category) => {
+            return(
+              <Card key={category.id} type="jobs" category={category}/> 
+            );
+          })}
+        </div>
       </div>
     </>
   );

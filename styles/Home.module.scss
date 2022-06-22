@@ -113,12 +113,24 @@
   justify-content:center;
   flex-wrap: wrap;
   row-gap: 80px;
-  column-gap: 40px;
+  column-gap: 5%;
 }
 
 @media (max-width: 600px) {
   .grid {
     width: 100%;
     flex-direction: column;
+  }
+}
+
+@media (max-width: 768px) {
+  .cardGrid{
+    margin: 100px 0%;
+  }
+}
+
+@media (max-width: 1024px) {
+  .cardGrid{
+    margin: 100px 5%;
   }
 }

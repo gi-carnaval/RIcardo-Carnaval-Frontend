@@ -1,6 +1,5 @@
 
 .slideContainer{
-    
     width: 100%;
     margin-top: -100px;
     overflow: hidden;
@@ -10,35 +9,32 @@
         position: absolute;
         justify-content: center;
         display: flex;
-        height: 100%;
-        
+        height: 90%;        
         width: 100%;
         
         img{
             position: absolute;
             width: 100%;
-            height: 100%;
+            height: 90%;
             object-fit: cover
         }
     }
     .labelSeeMore{
-        
-
         span{
             font-size: 1.5rem
         }
     }
 }
 .eachSlide{
+
     div{
         display: flex;
         align-items: center;
         justify-content: center;
         background-size: cover;
         background-position: center center;
-        height: 100vh;
+        height: 95vh;
     }
-    
 
     .labelSeeMore {
         
@@ -48,6 +44,13 @@
         top: 90vh;        
 
         color: #fff;
+
+        transition: all 0.25s ease-in-out;
+
+        &:hover {
+            transform: scale(1.05);
+            text-shadow: #000 0px 0px 10px;
+        }
     }
   }
   
