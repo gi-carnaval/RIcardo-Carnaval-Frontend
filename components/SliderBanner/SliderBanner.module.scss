@@ -1,7 +1,6 @@
 
 .slideContainer{
     width: 100%;
-    margin-top: -100px;
     overflow: hidden;
     z-index: 1;
 
@@ -33,7 +32,7 @@
         justify-content: center;
         background-size: cover;
         background-position: center center;
-        height: 95vh;
+        height: 80vh;
     }
 
     .labelSeeMore {
@@ -54,3 +53,19 @@
     }
   }
   
+  @media screen and (max-width: 425px){
+    .eachSlide{
+        div{
+            height: 30vh;
+        }
+    }
+  }
+
+  @media screen and (min-width: 425px) and (max-width: 768px){
+    .eachSlide{
+
+        div{
+            height: 60vh;
+        }
+    }
+  }

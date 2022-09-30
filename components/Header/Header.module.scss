@@ -1,6 +1,6 @@
 .headerTag {
     position: relative;
-    height: 100px;
+    height: 80px;
     margin: 0;
     padding: 0 5%;
     display: flex;
@@ -8,27 +8,73 @@
     justify-content: space-between;
     z-index: 2;
 
-    background: linear-gradient(180deg, rgba(255, 255, 255, 1), transparent)
+    background: #121214;
+
+    nav {
+        margin-left: 5rem;
+        height: 5rem;
+
+        a{
+            display: inline-block;
+            position: relative;
+            padding: 0 0.5rem;
+            height: 5rem;
+            line-height: 5rem;
+            color: #a8a8b3;
+
+            transition: color 0.2s;
+
+            & + a {
+                margin-left: 2rem;
+            }
+
+            &:hover {
+                color: #fff
+            }
+
+            &.active {
+                color: #fff;
+                font-weight: bold;
+            }
+
+            &.active::after {
+                content: '';
+                height: 3px;
+                border-radius: 3px 3px 0 0;
+                width: 100%;
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                background: rgb(185, 185, 44)
+                
+            }
+        }
+    }
 }
 
 .logoImg{
-    height: 70px;
+    height: 50px;
+}
+@media screen and (max-width: 425px){
+    .navMenu{
+        display: none;
+    }
+    .logoImg{
+        height: 40px;
+    }
+}
+@media screen and (min-width: 425px) and (max-width: 768px){
+    .navMenu{
+        display: none;
+    }
+    .logoImg{
+        height: 40px;
+    }
 }
 
-.navMenu{
-    width: 50%;
-    display: flex;
-    justify-content: space-around;
-    font-size: 0.9375rem;
-    /* color: #000; */
-    
-    a {
-        color: #000;
-        text-decoration: none;
-        text-transform: none;
-    }
-    
-    a:hover{
-        color: #5e5e5e;
+@media screen and (min-width: 768px) and (max-width: 1200px){
+    .navMenu{
+        width: 70%;
+        font-size: 12px;
     }
 }
